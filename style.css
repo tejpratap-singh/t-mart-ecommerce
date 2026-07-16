@@ -1491,6 +1491,44 @@ textarea {
 .btn-submit {
   width: 100%;
 }
+/* ================= MOBILE HEADER FIX ================= */
+
+.section-navbar .container{
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo img{
+    width:180px;
+    height:auto;
+}
+
+.section-navbar .navbar ul{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:1.5rem;
+}
+
+.section-navbar .navbar ul li a{
+    font-size:1.8rem;
+}
+
+.search-bar{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+#searchInput{
+    width:260px;
+}
+
+.cart{
+    margin-top:10px;
+}
 }
 /* ===== Small Mobile Devices ===== */
 
