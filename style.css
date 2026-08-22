@@ -88,9 +88,9 @@ a {
 
 /*! layout */
 .container {
-  width: min(100% - 2.4rem, 142rem);
+  width: min(100% - 3.2rem, 120rem);
   margin-inline: auto;
-  padding: 6rem 1.6rem;
+  padding: 4rem 1.6rem;
 }
 
 :is(
@@ -117,6 +117,16 @@ a {
 .grid-three--cols {
   grid-template-columns: repeat(3, 1fr);
 }
+@media (max-width: 900px) {
+  .grid-three--cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 600px) {
+  .grid-three--cols {
+    grid-template-columns: 1fr;
+  }
+}
+}
 
 .grid-three-cols {
   grid-template-columns: repeat(3, 1fr);
@@ -124,6 +134,18 @@ a {
 
 .grid-four--cols {
   grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 900px) {
+  .grid-four--cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-four--cols {
+    grid-template-columns: 1fr;
+  }
 }
 
 .grid-four-cols {
@@ -218,13 +240,20 @@ textarea:focus-visible {
   color: var(--backgroundColor);
 
   & .head_txt p {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   & .sing_in_up {
     display: flex;
     gap: 3.2rem;
   }
+}
+.top_txt .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .section-navbar {
@@ -239,18 +268,19 @@ textarea:focus-visible {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.8rem; /* we override the main container padding property  */
+  padding: 1.2rem 1.6rem;
+   /* we override the main container padding property  */
 }
 
 .section-navbar img {
-  width: 180px;
+  width: 160px;;
   max-width: 100%;
   height: auto;
 }
 
 .section-navbar .navbar ul {
   display: flex;
-  gap: 3.2rem;
+  gap: 2rem;
   text-transform: capitalize;
   align-items: center;
 
@@ -258,7 +288,7 @@ textarea:focus-visible {
     color: var(--heading-color);
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     display: inline-block;
     position: relative;
 
@@ -312,7 +342,8 @@ textarea:focus-visible {
 /***** Hero Section *****/
 
 main {
-  height: 84vh;
+  min-height: 84vh;
+  height:auto;
   position: relative;
   background-color: #d9e9ff;
 
@@ -388,7 +419,7 @@ main .section-hero {
 }
 
 .section-hero img {
-  width: 100%;
+  width: min(100%, 55rem);
   height: auto;
   transform: scaleX(-1);
 }
@@ -428,7 +459,7 @@ main .section-hero {
   }
 
   & h3 {
-    font-size: 2.4rem;
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
     text-transform: capitalize;
     margin: 0.6rem 0 1.6rem 0;
   }
@@ -473,7 +504,7 @@ main .section-hero {
 }
 
 .grid-three-cols {
-  gap: 6.4rem;
+  gap: 3rem;
 
   & :div {
     justify-self: left;
@@ -501,7 +532,7 @@ main .section-hero {
 }
 
 .div-policy {
-  padding: 3.2rem;
+  padding: 2rem;
   display: flex;
   align-items: center;
   gap: 3.2rem;
@@ -530,7 +561,7 @@ main .section-hero {
 /***** why choose Section *****/
 
 .section-why--choose .grid {
-  gap: 9.6rem;
+  gap: 4rem;
   align-items: center;
 }
 
@@ -585,8 +616,8 @@ main .section-hero {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 45rem;
-  height: 45rem;
+  width: min(45rem, 80vw);
+  height: min(45rem, 80vw);
   border-radius: 50%;
   background-color: var(--main-color);
   -webkit-transform: translate(-50%, -50%);
@@ -626,8 +657,8 @@ main .section-hero {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50rem;
-  height: 50rem;
+  width: min(50rem, 90vw);
+  height: min(50rem, 90vw);
   border-radius: 50%;
   background-color: transparent;
   border: 0.5rem solid var(--supporting-color);
@@ -652,7 +683,7 @@ main .section-hero {
 /***** Start contact Section *****/
 
 .section-contact .grid {
-  gap: 6.4rem;
+  gap: 3rem;
 }
 
 .mb-3 {
@@ -1426,7 +1457,7 @@ main {
 }
 
 .section-hero .hero-heading {
-  font-size: 3.4rem;
+  font-size: clamp(2.6rem, 8vw, 3.4rem);
   line-height: 1.3;
 }
 
@@ -2113,4 +2144,26 @@ font-size:2.8rem;
 
     color:#234f55;
 
+}
+@media (max-width: 900px) {
+  .section-navbar .container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .section-navbar .navbar ul {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+  }
+}
+@media (max-width: 900px) {
+  .section-extra-product .grid-three--cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .section-extra-product .grid-three--cols {
+    grid-template-columns: 1fr;
+  }
 }
