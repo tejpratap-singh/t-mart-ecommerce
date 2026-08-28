@@ -16,70 +16,103 @@
   </head>
   <body>
     <header class="section-navbar">
-      <section class="top_txt">
-        <div class="head container">
-          <div class="head_txt">
-            <p>Free shipping, 30-day return or refund guarantee.</p>
-          </div>
-          <div class="sing_in_up">
-           <a href="login.html">SIGN IN</a>
-           <a href="signup.html">SIGN UP</a>
-          </div>
-        </div>
-      </section>
-      <div class="container">
-        <div class="navbar-brand">
-          <a href="index.html">
-            <img
-              src="./images/log.png"
-              alt="T MART Logo"
-              class="logo"
-              width="80%"
-              height="auto"
-            />
-          </a>
-        </div>
 
-        <nav class="navbar">
-          <ul>
-            <li class="nav-item">
-              <a href="/" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="about.html" class="nav-link">about</a>
-            </li>
-            <li class="nav-item">
-              <a href="products.html" class="nav-link">products</a>
-            </li>
-            <li class="nav-item">
-              <a href="contact.html" class="nav-link">contact</a>
-            </li>
-            <li class="nav-item">
-              <input
-                type="text"
-                id="searchInput"
-                placeholder="Search Products..."
-              />
-            </li>
+  <!-- TOP BAR -->
+  <section class="top_txt">
+    <div class="head container">
 
-            <li class="nav-item">
-              <button id="searchBtn">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </li>
-            <li class="nav-item">
-              <a
-                href="addToCart.html"
-                class="nav-link add-to-cart-button"
-                id="cartValue"
-              >
-                <i class="fa-solid fa-cart-shopping"> 0 </i>
-              </a>
-            </li>
-          </ul>
-        </nav>
+      <div class="head_txt">
+        <p>Free shipping, 30-day return or refund guarantee.</p>
       </div>
-    </header>
+
+      <div class="sing_in_up">
+        <a href="login.html">SIGN IN</a>
+        <a href="signup.html">SIGN UP</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- MAIN HEADER -->
+  <div class="navbar-main container">
+
+    <!-- LOGO -->
+    <div class="navbar-brand">
+
+      <a href="index.html">
+
+        <img
+          src="./images/log.png"
+          alt="T MART Logo"
+          class="logo"
+        />
+
+      </a>
+
+    </div>
+
+
+    <!-- NAV + SEARCH + CART -->
+    <div class="navbar-row">
+
+      <!-- NAVIGATION -->
+      <nav class="navbar">
+
+        <ul>
+
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+
+          <li>
+            <a href="about.html">About</a>
+          </li>
+
+          <li>
+            <a href="products.html">Products</a>
+          </li>
+
+          <li>
+            <a href="contact.html">Contact</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+      <!-- SEARCH -->
+      <div class="search-box">
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search Products..."
+        />
+
+        <button id="searchBtn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+      </div>
+
+
+      <!-- CART -->
+      <a
+        href="addToCart.html"
+        class="add-to-cart-button"
+        id="cartValue"
+      >
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span>0</span>
+      </a>
+
+    </div>
+
+  </div>
+
+</header>
 
     <!-- ========== Start Extra Product Section ========== -->
     <section class="section-extra-product">

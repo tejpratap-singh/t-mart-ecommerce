@@ -238,16 +238,8 @@ textarea:focus-visible {
 .top_txt {
   background-color: var(--buttonColor);
   color: var(--backgroundColor);
-
-  & .head_txt p {
-    font-size: 1.3rem;
-  }
-
-  & .sing_in_up {
-    display: flex;
-    gap: 3.2rem;
-  }
 }
+
 .top_txt .head {
   display: flex;
   justify-content: space-between;
@@ -256,80 +248,194 @@ textarea:focus-visible {
   flex-wrap: wrap;
 }
 
+.top_txt .head_txt p {
+  font-size: 1.3rem;
+}
+
+.top_txt .sing_in_up {
+  display: flex;
+  gap: 3.2rem;
+}
+
+
+/* ================= MAIN HEADER ================= */
+
 .section-navbar {
   width: 100%;
   background: #ffffff;
-  backdrop-filter: blur(10px);
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+  box-shadow:
+    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
-.section-navbar .container {
+
+/* MAIN HEADER - ONE LINE */
+
+.section-navbar .navbar-main {
+  width: 100%;
+
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
+
   padding: 1.2rem 1.6rem;
-   /* we override the main container padding property  */
+
+  gap: 3rem;
+
+  flex-wrap: nowrap;
 }
 
-.section-navbar img {
-  width: 160px;;
-  max-width: 100%;
+
+/* ================= LOGO ================= */
+
+.section-navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+
+  flex-shrink: 0;
+  width: auto;
+  margin: 0;
+}
+
+.section-navbar .navbar-brand .logo {
+  width: 13rem;
   height: auto;
+  display: block;
+}
+
+
+/* ================= NAV + SEARCH + CART ================= */
+
+.section-navbar .navbar-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 2rem;
+
+  flex: 1;
+
+  flex-wrap: nowrap;
+
+  min-width: 0;
+}
+
+
+/* ================= NAVIGATION ================= */
+
+.section-navbar .navbar {
+  flex-shrink: 0;
 }
 
 .section-navbar .navbar ul {
   display: flex;
-  gap: 2rem;
-  text-transform: capitalize;
+  flex-direction: row;
   align-items: center;
 
-  & li a {
-    color: var(--heading-color);
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 1.4rem;
-    display: inline-block;
-    position: relative;
+  gap: 2rem;
 
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: -0.3rem;
-      left: 0;
-      width: 0%;
-      border-bottom: 0.1rem solid var(--main-color);
-      transition: all 0.3s linear;
-    }
-  }
-  & li a:hover {
-    color: var(--main-color);
-    font-weight: 700;
-  }
+  margin: 0;
+  padding: 0;
 
-  & li a:hover:after {
-    width: 100%;
-  }
+  list-style: none;
+
+  flex-wrap: nowrap;
 }
+
+.section-navbar .navbar ul li {
+  list-style: none;
+  flex-shrink: 0;
+}
+
+.section-navbar .navbar ul li a {
+  color: var(--heading-color);
+
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+
+  display: inline-block;
+  position: relative;
+
+  white-space: nowrap;
+
+  transition: all 0.3s ease;
+}
+
+.section-navbar .navbar ul li a::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -0.3rem;
+  left: 0;
+
+  width: 0%;
+
+  border-bottom: 0.1rem solid var(--main-color);
+
+  transition: all 0.3s linear;
+}
+
+.section-navbar .navbar ul li a:hover {
+  color: var(--main-color);
+  font-weight: 700;
+}
+
+.section-navbar .navbar ul li a:hover::after {
+  width: 100%;
+}
+
+
+/* ================= SEARCH ================= */
+
+.section-navbar .search-box {
+  display: flex;
+  align-items: center;
+
+  gap: 0.5rem;
+
+  flex-shrink: 0;
+}
+
 #searchInput {
-  width: min(180px, 100%);
-  height: 38px;
-  padding: 0 12px;
+  width: 21rem;
+  height: 4.2rem;
+
+  padding: 0 1.2rem;
+
   border: 2px solid #93b0c7;
-  border-radius: 8px;
+  border-radius: 0.8rem;
+
   outline: none;
-  font-size: 14px;
+
+  font-size: 1.5rem;
+
   background: #ffffff;
 }
 
+#searchInput:focus {
+  border-color: #8098c8;
+}
+
 #searchBtn {
-  width: 40px;
-  height: 40px;
+  width: 4.2rem;
+  height: 4.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border: none;
-  border-radius: 8px;
+  border-radius: 0.8rem;
+
   background: #93b0c7;
   color: white;
+
   cursor: pointer;
+
+  flex-shrink: 0;
+
   transition: 0.3s;
 }
 
@@ -337,7 +443,152 @@ textarea:focus-visible {
   background: #8098c8;
 }
 
+
+/* ================= CART ================= */
+
+.section-navbar #cartValue {
+  margin-left: auto;
+
+  width: 8rem;
+  height: 4.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.6rem;
+
+  background: #8098c8;
+  color: white;
+
+  border-radius: 0.8rem;
+
+  font-size: 1.6rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  flex-shrink: 0;
+
+  transition: 0.3s;
+}
+
+.section-navbar #cartValue:hover {
+  background: #6f88ba;
+  transform: translateY(-2px);
+}
+
+
 /***** Navbar End Section *****/
+
+/* ==========================================
+   T MART HEADER - SINGLE ROW
+   ========================================== */
+
+.navbar-main {
+  width: 100%;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+
+  padding: 1.2rem 2rem !important;
+  gap: 3rem !important;
+
+  flex-wrap: nowrap !important;
+  box-sizing: border-box;
+}
+
+.navbar-brand {
+  display: flex !important;
+  align-items: center !important;
+
+  flex: 0 0 auto !important;
+  width: auto !important;
+  margin: 0 !important;
+}
+
+.navbar-brand .logo {
+  width: 13rem !important;
+  height: auto !important;
+  display: block !important;
+}
+
+.navbar-row {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+
+  flex: 1 1 auto !important;
+  width: auto !important;
+
+  gap: 2rem !important;
+
+  flex-wrap: nowrap !important;
+  min-width: 0 !important;
+}
+
+.navbar {
+  flex: 0 0 auto !important;
+}
+
+.navbar ul {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+
+  flex-wrap: nowrap !important;
+
+  gap: 2rem !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.navbar ul li {
+  flex-shrink: 0 !important;
+}
+
+.navbar ul li a {
+  white-space: nowrap !important;
+}
+
+.search-box {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+
+  flex: 0 1 auto !important;
+  flex-shrink: 1 !important;
+
+  gap: 0.5rem !important;
+}
+
+#searchInput {
+  width: 21rem !important;
+  height: 4.2rem !important;
+}
+
+#searchBtn {
+  width: 4.2rem !important;
+  min-width: 4.2rem !important;
+  height: 4.2rem !important;
+}
+
+#cartValue {
+  margin-left: auto !important;
+
+  flex: 0 0 auto !important;
+
+  width: 8rem !important;
+  height: 4.2rem !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  white-space: nowrap !important;
+}
 
 /***** Hero Section *****/
 
@@ -741,8 +992,10 @@ footer {
 }
 
 .footer-container {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
+  gap: 4rem;
+  align-items: start;
   padding: 6rem 0;
 }
 
@@ -2167,3 +2420,656 @@ font-size:2.8rem;
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== Desktop Footer Layout ===== */
+@media (min-width: 981px) {
+
+  .section-footer .footer-container {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
+    gap: 4rem;
+    align-items: start;
+    justify-content: initial;
+    padding: 5rem 3rem;
+  }
+
+  .section-footer .content_1,
+  .section-footer .content_2,
+  .section-footer .content_3,
+  .section-footer .content_4 {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .section-footer .content_1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .section-footer .content_2,
+  .section-footer .content_3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .section-footer .content_4 {
+    text-align: left;
+  }
+
+  .section-footer .content_1 img:first-child {
+    width: 14rem;
+    height: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-footer .content_1 p {
+    max-width: 30rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-footer .content_1 img:last-child {
+    width: 14rem;
+    height: auto;
+  }
+
+  .section-footer .content_2 h4,
+  .section-footer .content_3 h4,
+  .section-footer .content_4 h4 {
+    margin-bottom: 1.8rem;
+  }
+
+  .section-footer .content_2 a,
+  .section-footer .content_3 a {
+    margin-bottom: 1.2rem;
+  }
+
+  .section-footer .content_4 p {
+    margin-bottom: 2rem;
+  }
+
+  .section-footer .f-mail {
+    width: 100%;
+  }
+}
+/* ===== Desktop Product Grid ===== */
+
+@media (min-width: 981px) and (max-width: 1599px) {
+  .section-products #productContainer {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3rem;
+    width: 100%;
+    justify-items: stretch;
+  }
+
+  .section-products #productContainer .cards {
+    width: 100%;
+    max-width: 36rem;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1600px) {
+  .section-products #productContainer {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 3rem;
+    width: 100%;
+    justify-items: stretch;
+  }
+
+  .section-products #productContainer .cards {
+    width: 100%;
+    max-width: 35rem;
+    margin: 0 auto;
+  }
+}
+
+
+/* =====================================================
+   DESKTOP HEADER - EVERYTHING IN ONE LINE
+   ===================================================== */
+
+@media (min-width: 981px) {
+
+  .navbar-main {
+    width: 100%;
+    min-height: 10rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    gap: 3rem;
+
+    padding: 1.8rem 2rem;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  .navbar-brand .logo {
+    width: 13rem;
+    height: auto;
+    display: block;
+  }
+
+  .navbar-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 2rem;
+    width: auto;
+  }
+
+  .navbar ul {
+    display: flex;
+    align-items: center;
+
+    gap: 2rem;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  .navbar ul li {
+    list-style: none;
+  }
+
+  .navbar ul li a {
+    display: inline-block;
+
+    color: var(--heading-color);
+
+    font-size: 1.6rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    position: relative;
+
+    transition: 0.3s ease;
+  }
+
+  .navbar ul li a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -0.4rem;
+
+    width: 0;
+    height: 0.2rem;
+
+    background: var(--main-color);
+
+    transition: 0.3s ease;
+  }
+
+  .navbar ul li a:hover {
+    color: var(--main-color);
+  }
+
+  .navbar ul li a:hover::after {
+    width: 100%;
+  }
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  #searchInput {
+    width: 51rem;
+    height: 4.2rem;
+
+    padding: 0 1.2rem;
+
+    border: 2px solid #93b0c7;
+    border-radius: 0.8rem;
+
+    font-size: 1.5rem;
+    background: #fff;
+  }
+
+  #searchBtn {
+    width: 4.2rem;
+    height: 4.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 0.8rem;
+
+    background: #93b0c7;
+    color: white;
+
+    cursor: pointer;
+  }
+
+  .navbar-row .add-to-cart-button {
+    height: 4.2rem;
+    min-width: 6.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.6rem;
+
+    padding: 0 1.2rem;
+
+    background: #8098c8;
+    color: white;
+
+    border-radius: 0.8rem;
+
+    font-size: 1.6rem;
+    font-weight: 700;
+
+    white-space: nowrap;
+  }
+}
+
+/* =====================================================
+   FINAL DESKTOP HEADER FIX
+   KEEP EVERYTHING IN ONE SINGLE LINE
+   ===================================================== */
+
+@media (min-width: 981px) {
+
+  .navbar-main {
+    width: 100%;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 3rem;
+    flex-wrap: nowrap !important;
+  }
+
+  /* LOGO */
+  .navbar-brand {
+    flex-shrink: 0 !important;
+    width: auto !important;
+    margin: 0 !important;
+  }
+
+  .navbar-brand .logo {
+    width: 13rem !important;
+    height: auto !important;
+    display: block;
+  }
+
+  /* NAV + SEARCH + CART */
+  .navbar-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 2rem;
+    width: auto !important;
+    flex-wrap: nowrap !important;
+  }
+
+  /* NAVIGATION */
+  .navbar {
+    display: flex !important;
+    align-items: center !important;
+    width: auto !important;
+    flex-shrink: 0 !important;
+  }
+
+  .navbar ul {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    flex-wrap: nowrap !important;
+
+    gap: 2rem !important;
+
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    list-style: none !important;
+  }
+
+  .navbar ul li {
+    display: block !important;
+    flex-shrink: 0 !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .navbar ul li a {
+    display: inline-block !important;
+    white-space: nowrap !important;
+  }
+
+  /* SEARCH */
+  .search-box {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    flex-shrink: 0 !important;
+    width: auto !important;
+  }
+
+  #searchInput {
+    width: 51rem !important;
+    height: 4.2rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  #searchBtn {
+    width: 4.2rem !important;
+    height: 4.2rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* CART */
+  .navbar-row .add-to-cart-button {
+    width: auto !important;
+    min-width: 6.5rem !important;
+    height: 4.2rem !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+  }
+}
+/* =====================================================
+   HEADER - PAGES WITHOUT SEARCH
+   LOGO + NAV LEFT | CART RIGHT
+   ===================================================== */
+
+@media (min-width: 981px) {
+
+  .section-navbar .container {
+    width: 100% !important;
+    max-width: 140rem !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+
+    justify-content: flex-start !important;
+
+    padding: 1.5rem 4rem !important;
+    gap: 4rem !important;
+
+    flex-wrap: nowrap !important;
+  }
+
+  /* LOGO */
+  .section-navbar .navbar-brand {
+    width: auto !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .section-navbar .navbar-brand img,
+  .section-navbar .logo img {
+    width: 13rem !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  /* NAVIGATION */
+  .section-navbar .navbar {
+    display: flex !important;
+    align-items: center !important;
+
+    width: auto !important;
+    flex-shrink: 0 !important;
+  }
+
+  .section-navbar .navbar ul {
+    display: flex !important;
+    flex-direction: row !important;
+
+    align-items: center !important;
+
+    flex-wrap: nowrap !important;
+
+    gap: 2.5rem !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .section-navbar .navbar ul li {
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .section-navbar .navbar ul li a {
+    white-space: nowrap !important;
+    display: inline-block !important;
+  }
+
+  /* CART RIGHT */
+  .section-navbar .add-to-cart-button,
+  .section-navbar .cart {
+    margin-left: auto !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 7rem !important;
+    min-width: 7rem !important;
+    height: 4.2rem !important;
+
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+  }
+}
+/* ==========================================
+   CART - FAR RIGHT ON DESKTOP
+   ========================================== */
+
+@media (min-width: 981px) {
+
+  .section-navbar .container {
+    position: relative !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+  }
+
+  .section-navbar .navbar-brand {
+    flex-shrink: 0 !important;
+  }
+
+  .section-navbar .navbar {
+    flex-shrink: 0 !important;
+  }
+
+  .section-navbar .cart,
+  .section-navbar .add-to-cart-button {
+    position: absolute !important;
+    right: 4rem !important;
+    top: 50% !important;
+
+    transform: translateY(-50%) !important;
+
+    margin: 0 !important;
+
+    width: 7rem !important;
+    min-width: 7rem !important;
+    height: 4.2rem !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+/* ==========================================
+   SAME HEADER ON ALL DESKTOP PAGES
+   ========================================== */
+
+@media (min-width: 981px) {
+
+  .section-navbar .container {
+    width: 100% !important;
+    max-width: 140rem !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+
+    justify-content: flex-start !important;
+
+    padding: 1.5rem 4rem !important;
+    gap: 4rem !important;
+
+    flex-wrap: nowrap !important;
+  }
+
+  /* LOGO */
+  .section-navbar .navbar-brand {
+    width: auto !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .section-navbar .navbar-brand img,
+  .section-navbar .logo img {
+    width: 13rem !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  /* NAVIGATION */
+  .section-navbar .navbar {
+    display: flex !important;
+    align-items: center !important;
+    width: auto !important;
+    flex-shrink: 0 !important;
+  }
+
+  .section-navbar .navbar ul {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+
+    flex-wrap: nowrap !important;
+
+    gap: 2.5rem !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .section-navbar .navbar ul li {
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .section-navbar .navbar ul li a {
+    white-space: nowrap !important;
+  }
+
+  /* SEARCH - SHOW AGAIN */
+  .section-navbar .search-box {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+
+    width: auto !important;
+    flex-shrink: 0 !important;
+  }
+
+  .section-navbar #searchInput {
+    display: block !important;
+    width: 59rem !important;
+    height: 4.2rem !important;
+  }
+
+  .section-navbar #searchBtn {
+    display: flex !important;
+    width: 4.2rem !important;
+    height: 4.2rem !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* CART - RIGHT */
+  .section-navbar .cart,
+  .section-navbar .add-to-cart-button {
+    margin-left: auto !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 7rem !important;
+    min-width: 7rem !important;
+    height: 4.2rem !important;
+
+    flex-shrink: 0 !important;
+  }
+}/* ==========================================
+   DESKTOP PRODUCT CARDS
+   ALIGN ALL ADD TO CART BUTTONS
+   ========================================== */
+
+@media (min-width: 981px) {
+
+  #productContainer .cards {
+    height: 100%;
+  }
+
+  #productContainer .cards .information {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #productContainer .cards .add-to-cart-button {
+    margin-top: auto;
+    width: 100%;
+  }
+
+}
+
+
+
+
+
+
+

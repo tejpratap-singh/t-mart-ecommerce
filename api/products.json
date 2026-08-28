@@ -6,7 +6,7 @@
     "brand": "Dell",
     "price": 999.99,
     "stock": 50,
-    "description": "Powerful laptop with a quad-core i5 processor, 8GB RAM, 256GB SSD, and a 14-inch FHD display.",
+    "description": "Powerful laptop with a quad-core i5 processor,13 gen, 8GB RAM, 256GB SSD, and a 14-inch FHD display.",
     "image": "../images/lapi.png"
   },
   {
@@ -21,7 +21,7 @@
   },
   {
     "id": 3,
-    "name": "Wireless Headphones",
+    "name": "Headphones",
     "category": "Audio",
     "brand": "JBL",
     "price": 149.99,
