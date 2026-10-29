@@ -1775,9 +1775,9 @@ linear-gradient(
 }
 
 /* ==========================================
-   3. Tablets & Small Laptops (651px - 1024px)
+   3. Tablets, Foldables (Unfolded) & Laptops (601px - 1024px)
    ========================================== */
-@media (min-width: 651px) and (max-width: 1024px) {
+@media (min-width: 601px) and (max-width: 1024px) {
   html {
     font-size: 58%;
   }
@@ -1790,7 +1790,7 @@ linear-gradient(
   /* Single-row header matching laptop design */
   .section-navbar .navbar-main {
     padding: 1rem 1.8rem;
-    gap: 1.8rem;
+    gap: 1.6rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1798,7 +1798,7 @@ linear-gradient(
   }
 
   .section-navbar .navbar-brand .logo {
-    width: 11rem;
+    width: 10.5rem;
   }
 
   .navbar-toggle {
@@ -1819,7 +1819,7 @@ linear-gradient(
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 1.6rem;
+    gap: 1.5rem;
   }
 
   .section-navbar .navbar ul li a {
@@ -1831,7 +1831,7 @@ linear-gradient(
     align-items: center;
     gap: 0.6rem;
     flex: 0 1 24rem;
-    min-width: 16rem;
+    min-width: 15rem;
     max-width: 28rem;
   }
 
@@ -1856,7 +1856,7 @@ linear-gradient(
 
   .section-navbar #cartValue {
     height: 4rem;
-    min-width: 7rem;
+    min-width: 6.8rem;
     padding: 0 1.2rem;
     font-size: 1.4rem;
     width: auto !important;
@@ -1885,9 +1885,9 @@ linear-gradient(
 }
 
 /* ==========================================
-   4. Mobile Phones (max-width: 650px)
+   4. Mobile Phones & Foldable Devices (max-width: 600px)
    ========================================== */
-@media (max-width: 650px) {
+@media (max-width: 600px) {
   html {
     font-size: 56.25%;
   }
@@ -1897,14 +1897,16 @@ linear-gradient(
     padding: 2.8rem 1.6rem;
   }
 
-  /* Clean 3-tier mobile navbar: Logo+Cart / Nav Links / Search */
+  /* Compact 2-row navbar:
+     Row 1: [Logo] [HOME ABOUT PRODUCTS CONTACT] [Cart]
+     Row 2: [Search Input + Search Button] */
   .section-navbar .navbar-main {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 0.8rem 1.4rem;
-    gap: 0.8rem 1rem;
+    padding: 0.6rem 0.8rem;
+    gap: 0.5rem 0.6rem;
     position: relative;
   }
 
@@ -1915,71 +1917,52 @@ linear-gradient(
   }
 
   .section-navbar .navbar-brand .logo {
-    width: 10.5rem;
-    max-width: 10.5rem;
+    width: 6.2rem;
+    max-width: 6.2rem;
+    height: auto;
     display: block;
   }
 
-  .navbar-actions {
-    order: 2;
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  .navbar-toggle {
-    display: none !important;
-  }
-
-  .section-navbar #cartValue {
-    height: 3.8rem;
-    min-width: 6.2rem;
-    padding: 0 1.2rem;
-    font-size: 1.35rem;
-    width: auto !important;
-  }
-
-  /* Horizontal visible navigation links bar */
   .section-navbar .navbar {
-    order: 3;
-    width: 100%;
-    flex: 1 1 100%;
-    display: block !important;
-    margin: 0.2rem 0;
+    order: 2;
+    flex: 1 1 auto;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
     background: transparent;
     border: none;
     box-shadow: none;
-    padding: 0;
   }
 
   .section-navbar .navbar ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    width: 100%;
-    padding: 0.4rem 0;
+    gap: 0.5rem;
+    padding: 0;
     margin: 0;
     list-style: none;
-    border-top: 1px solid #eef2f5;
-    border-bottom: 1px solid #eef2f5;
+    border: none;
+    flex-wrap: nowrap;
   }
 
   .section-navbar .navbar ul li {
-    flex: 1;
-    text-align: center;
+    flex: 0 0 auto;
   }
 
   .section-navbar .navbar ul li a {
-    font-size: 1.3rem;
+    font-size: 1.12rem;
     font-weight: 700;
     color: #1f2a44;
     text-transform: uppercase;
-    padding: 0.6rem 0.2rem;
-    display: block;
+    padding: 0.2rem 0.15rem;
+    display: inline-block;
     white-space: nowrap;
-    letter-spacing: 0.04rem;
+    letter-spacing: 0.02rem;
     transition: color 0.2s ease;
   }
 
@@ -1991,7 +1974,27 @@ linear-gradient(
     display: none;
   }
 
-  /* Integrated search bar */
+  .navbar-actions {
+    order: 3;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+  }
+
+  .navbar-toggle {
+    display: none !important;
+  }
+
+  .section-navbar #cartValue {
+    height: 3.2rem;
+    min-width: 4.8rem;
+    padding: 0 0.8rem;
+    font-size: 1.2rem;
+    width: auto !important;
+  }
+
+  /* Search bar spans full Row 2 */
   .section-navbar .search-box {
     order: 4;
     width: 100%;
@@ -2008,7 +2011,7 @@ linear-gradient(
     width: 100%;
     flex: 1 1 auto;
     min-width: 0;
-    height: 4rem;
+    height: 3.8rem;
     font-size: 1.35rem;
     padding: 0 1.2rem;
     border: 2px solid #93b0c7;
@@ -2017,9 +2020,9 @@ linear-gradient(
   }
 
   #searchBtn {
-    width: 4rem;
-    min-width: 4rem;
-    height: 4rem;
+    width: 3.8rem;
+    min-width: 3.8rem;
+    height: 3.8rem;
     font-size: 1.5rem;
     flex-shrink: 0;
     border: none;
@@ -2030,10 +2033,6 @@ linear-gradient(
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .section-navbar .navbar ul li a::after {
-    display: none;
   }
 
   /* Hero Section */
@@ -2163,50 +2162,64 @@ linear-gradient(
    5. Mobile Phones (max-width: 600px)
    ========================================== */
 @media (max-width: 600px) {
-  /* Slim, compact and elegant top bar on mobile */
+  /* Laptop-matching single-row top bar on mobile */
   .top_txt {
-    padding: 0.25rem 0;
+    padding: 0.35rem 0;
   }
 
   .top_txt .head {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.25rem;
-    padding: 0.25rem 1.2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.8rem;
+    gap: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .top_txt .head_txt {
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .top_txt .head_txt p {
-    font-size: 1.15rem;
-    line-height: 1.2;
+    font-size: 1.1rem;
+    color: #ffffff;
     margin: 0;
-    opacity: 0.95;
-    letter-spacing: 0.02rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .top_txt .sing_in_up {
-    gap: 0.6rem;
     display: flex;
-    justify-content: center;
     align-items: center;
+    gap: 0.4rem;
+    flex-shrink: 0;
   }
 
   .top_txt .sing_in_up a {
-    padding: 0.2rem 1rem;
-    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.8rem;
+    font-size: 1rem;
     font-weight: 600;
-    line-height: 1.2;
-    border-radius: 1.2rem;
-    background: rgba(255, 255, 255, 0.22);
-    border: 1px solid rgba(255, 255, 255, 0.45);
     color: #ffffff;
-    letter-spacing: 0.03rem;
+    background: #234f55;
+    border: 1.5px solid #234f55;
+    border-radius: 2rem;
     text-decoration: none;
-    transition: background-color 0.2s ease;
+    line-height: 1.2;
+    white-space: nowrap;
+    transition: all 0.25s ease;
   }
 
-  .top_txt .sing_in_up a:hover,
-  .top_txt .sing_in_up a:active {
-    background: rgba(255, 255, 255, 0.35);
+  .top_txt .sing_in_up a:hover {
+    background: #3b6b72;
+    border-color: #3b6b72;
   }
 
   /* Hero Section */
@@ -2292,60 +2305,67 @@ linear-gradient(
   }
 
   .top_txt {
-    padding: 0.2rem 0;
+    padding: 0.4rem 0;
   }
 
   .top_txt .head {
-    padding: 0.15rem 0.8rem;
-    gap: 0.2rem;
+    padding: 0 0.8rem;
+    gap: 0.5rem;
   }
 
   .top_txt .head_txt p {
     font-size: 1.05rem;
-    line-height: 1.2;
+  }
+
+  .top_txt .sing_in_up {
+    gap: 0.4rem;
   }
 
   .top_txt .sing_in_up a {
-    padding: 0.15rem 0.8rem;
-    font-size: 1rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.95rem;
   }
 
   .section-navbar .navbar-main {
-    padding: 0.8rem 1rem;
-    gap: 0.6rem;
+    padding: 0.6rem 0.8rem;
+    gap: 0.4rem 0.6rem;
   }
 
   .section-navbar .navbar-brand .logo {
-    width: 8.5rem;
-    max-width: 8.5rem;
+    width: 6.8rem;
+    max-width: 6.8rem;
+  }
+
+  .section-navbar .navbar ul {
+    gap: 0.5rem;
+  }
+
+  .section-navbar .navbar ul li a {
+    font-size: 1.15rem;
+    padding: 0.2rem 0;
   }
 
   .section-navbar #cartValue {
-    height: 3.8rem;
-    min-width: 5.6rem;
-    padding: 0 0.8rem;
-    font-size: 1.25rem;
+    height: 3.4rem;
+    min-width: 5rem;
+    padding: 0 0.7rem;
+    font-size: 1.2rem;
   }
 
   .navbar-toggle {
     display: none !important;
   }
 
-  .section-navbar .navbar ul li a {
-    font-size: 1.18rem;
-    padding: 0.4rem 0.1rem;
-  }
-
   #searchInput {
-    height: 3.8rem;
-    font-size: 1.3rem;
-    padding: 0 1rem;
+    height: 3.6rem;
+    font-size: 1.25rem;
+    padding: 0 0.9rem;
   }
 
   #searchBtn {
-    width: 3.8rem;
-    min-width: 3.8rem;
-    height: 3.8rem;
+    width: 3.6rem;
+    min-width: 3.6rem;
+    height: 3.6rem;
   }
 
   .section-hero .hero-heading {
