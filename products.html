@@ -35,80 +35,67 @@
 
 
   <!-- MAIN HEADER -->
-  <div class="navbar-main container">
+  <div class="navbar-main">
 
     <!-- LOGO -->
     <div class="navbar-brand">
-
       <a href="index.html">
-
         <img
           src="./images/log.png"
           alt="T MART Logo"
           class="logo"
         />
-
       </a>
-
     </div>
 
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+      <ul>
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li>
+          <a href="about.html">About</a>
+        </li>
+        <li>
+          <a href="products.html">Products</a>
+        </li>
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
 
-    <!-- NAV + SEARCH + CART -->
-    <div class="navbar-row">
+    <!-- SEARCH -->
+    <div class="search-box">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search Products..."
+        autocomplete="off"
+      />
+      <button id="searchBtn" aria-label="Search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </div>
 
-      <!-- NAVIGATION -->
-      <nav class="navbar">
-
-        <ul>
-
-          <li>
-            <a href="index.html">Home</a>
-          </li>
-
-          <li>
-            <a href="about.html">About</a>
-          </li>
-
-          <li>
-            <a href="products.html">Products</a>
-          </li>
-
-          <li>
-            <a href="contact.html">Contact</a>
-          </li>
-
-        </ul>
-
-      </nav>
-
-
-      <!-- SEARCH -->
-      <div class="search-box">
-
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search Products..."
-        />
-
-        <button id="searchBtn">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-
-      </div>
-
-
-      <!-- CART -->
+    <!-- ACTIONS: CART + HAMBURGER -->
+    <div class="navbar-actions">
       <a
         href="addToCart.html"
-        class="add-to-cart-button"
+        class="add-to-cart-button navbar-cart-button"
         id="cartValue"
       >
         <i class="fa-solid fa-cart-shopping"></i>
         <span>0</span>
       </a>
 
+      <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </div>
+
+  </div>
 
   </div>
 

@@ -132,4 +132,58 @@ if (searchBtn && searchInput) {
     });
   }
 }
+
+// ================= Mobile Navigation Toggle =================
+const navbarToggle = document.getElementById("navbarToggle");
+const navbarMenu = document.querySelector(".navbar");
+
+if (navbarToggle && navbarMenu) {
+  navbarToggle.addEventListener("click", () => {
+    const isExpanded = navbarToggle.getAttribute("aria-expanded") === "true";
+    navbarToggle.setAttribute("aria-expanded", String(!isExpanded));
+    navbarMenu.classList.toggle("active");
+    const icon = navbarToggle.querySelector("i");
+    if (icon) {
+      if (navbarMenu.classList.contains("active")) {
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+      } else {
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+      }
+    }
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener("click", (event) => {
+    if (
+      navbarMenu.classList.contains("active") &&
+      !navbarMenu.contains(event.target) &&
+      !navbarToggle.contains(event.target)
+    ) {
+      navbarMenu.classList.remove("active");
+      navbarToggle.setAttribute("aria-expanded", "false");
+      const icon = navbarToggle.querySelector("i");
+      if (icon) {
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+      }
+    }
+  });
+
+  // Close mobile menu when a nav link is clicked
+  const navLinks = navbarMenu.querySelectorAll("a");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navbarMenu.classList.remove("active");
+      navbarToggle.setAttribute("aria-expanded", "false");
+      const icon = navbarToggle.querySelector("i");
+      if (icon) {
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+      }
+    });
+  });
+}
+
 // Developed by Tej Pratap Singh
