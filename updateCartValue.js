@@ -1,5 +1,8 @@
-const cartValue = document.querySelector("#cartValue");
-
 export const updateCartValue = (cartProducts) => {
-  return (cartValue.innerHTML = ` <i class="fa-solid fa-cart-shopping"> ${cartProducts.length} </i>`);
+  const cartValue = document.querySelector("#cartValue");
+  if (!cartValue) return;
+
+  const count = Array.isArray(cartProducts) ? cartProducts.length : 0;
+  cartValue.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> <span>${count}</span>`;
+  return count;
 };

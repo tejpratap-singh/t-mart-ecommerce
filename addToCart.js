@@ -15,48 +15,48 @@ export const addToCart = (event, id, stock) => {
   let arrLocalStorageProduct = getCartProductFromLS();
 
   const currentProdElem = document.querySelector(`#card${id}`);
-  let quantity = currentProdElem.querySelector(".productQuantity").innerText;
-  let price = currentProdElem.querySelector(".productPrice").innerText;
-  //   console.log(quantity, price);
-  price = price.replace("₹", "");
+  if (!currentProdElem) return;
+
+  let quantity = Number(currentProdElem.querySelector(".productQuantity").innerText) || 1;
+  let rawPrice = currentProdElem.querySelector(".productPrice").innerText;
+  let unitPrice = Number(rawPrice.replace("₹", "").trim()) || 0;
 
   let existingProd = arrLocalStorageProduct.find(
     (curProd) => curProd.id === id
   );
 
-  console.log(existingProd);
-
-  if (existingProd && quantity > 1) {
-    quantity = Number(existingProd.quantity) + Number(quantity);
-    price = Number(price * quantity);
-    let updatedCart = { id, quantity, price };
-
-    updatedCart = arrLocalStorageProduct.map((curProd) => {
-      return curProd.id === id ? updatedCart : curProd;
-    });
-    console.log(updatedCart);
-
-    localStorage.setItem("cartProductLS", JSON.stringify(updatedCart));
-    //show toast when product added to the cart
-    showToast("add", id);
-  }
-
   if (existingProd) {
-    // alert("bhai duplicate hai");
-    return false;
+    let newQuantity = Number(existingProd.quantity) + quantity;
+    if (newQuantity > stock) {
+      newQuantity = stock;
+      showToast("add", id, `Max available stock (${stock}) reached!`);
+    } else {
+      showToast("add", id, `Cart updated (${newQuantity} in cart)`);
+    }
+
+    let updatedPrice = Number((unitPrice * newQuantity).toFixed(2));
+
+    arrLocalStorageProduct = arrLocalStorageProduct.map((curProd) => {
+      return curProd.id === id
+        ? { id, quantity: newQuantity, price: updatedPrice }
+        : curProd;
+    });
+
+    localStorage.setItem("cartProductLS", JSON.stringify(arrLocalStorageProduct));
+    updateCartValue(arrLocalStorageProduct);
+    return;
   }
 
+  // New product
+  if (quantity > stock) {
+    quantity = stock;
+  }
+  let totalPrice = Number((unitPrice * quantity).toFixed(2));
 
-  price = Number(price * quantity);
-  quantity = Number(quantity);
-
-  arrLocalStorageProduct.push({ id, quantity, price });
+  arrLocalStorageProduct.push({ id, quantity, price: totalPrice });
   localStorage.setItem("cartProductLS", JSON.stringify(arrLocalStorageProduct));
 
-  //update the cart button value
   updateCartValue(arrLocalStorageProduct);
-
-  //show toast when product added to the cart
-  showToast("add", id);
+  showToast("add", id, `Product added to cart successfully.`);
 };
 // Developed by Tej Pratap Singh

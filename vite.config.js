@@ -12,6 +12,8 @@ export default defineConfig({
         products: resolve(__dirname, "products.html"),
         addToCart: resolve(__dirname, "addToCart.html"),
         login: resolve(__dirname, "login.html"),
+        signup: resolve(__dirname, "signup.html"),
+        forgotPassword: resolve(__dirname, "forgot-password.html"),
         // Add more entry points for other HTML files as needed
       },
     },

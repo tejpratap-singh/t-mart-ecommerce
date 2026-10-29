@@ -1,5 +1,4 @@
 const footerHTML = `
-  <footer class="section-footer">
     <div class="footer-container container">
       <div class="content_1">
         <img src="./images/log.png" alt="T MART Logo" />
@@ -14,18 +13,18 @@ const footerHTML = `
 
       <div class="content_2">
         <h4>SHOPPING</h4>
-        <a href="#">Computer Store</a>
-        <a href="#">Laptop Store</a>
-        <a href="#">Accessories</a>
-        <a href="#">Sales & Discount</a>
+        <a href="products.html">Computer Store</a>
+        <a href="products.html">Laptop Store</a>
+        <a href="products.html">Accessories</a>
+        <a href="products.html">Sales & Discount</a>
       </div>
 
       <div class="content_3">
         <h4>EXPERIENCE</h4>
-        <a href="./contact.html">Contact Us</a>
-        <a href="" target="_blank">Payment Method</a>
-        <a href="" target="_blank">Delivery</a>
-        <a href="" target="_blank">Return and Exchange</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="about.html">About Us</a>
+        <a href="addToCart.html">Shopping Cart</a>
+        <a href="contact.html">Return and Exchange</a>
       </div>
 
       <div class="content_4">
@@ -38,7 +37,7 @@ const footerHTML = `
 
         <div class="f-mail">
           <input type="email" placeholder="Your Email" />
-          <i class="bx bx-envelope"></i>
+          <i class="fa-solid fa-envelope"></i>
         </div>
 
         <hr />
@@ -49,8 +48,9 @@ const footerHTML = `
       <div class="f-design-txt">
         <p>Designed & Developed by Tej Pratap Singh</p>
       </div>
-    </div>
-  </footer>`;
+    </div>`;
 
 const footerElem = document.querySelector(".section-footer");
-footerElem.insertAdjacentHTML("afterbegin", footerHTML);
+if (footerElem && footerElem.children.length === 0) {
+  footerElem.innerHTML = footerHTML;
+}

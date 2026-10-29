@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - T MART</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="login-page">
+    <div class="login-card">
+        <h1>T MART</h1>
+        <h2>Create Account 🚀</h2>
+        <p>Join us today for exclusive offers & smart shopping</p>
+
+        <form id="signupForm">
+            <div class="input-box">
+                <i class="fa-solid fa-user input-icon"></i>
+                <input type="text" id="signupName" placeholder="Full Name" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-envelope input-icon"></i>
+                <input type="email" id="signupEmail" placeholder="Email Address" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-phone input-icon"></i>
+                <input type="tel" id="signupPhone" placeholder="Mobile Number" maxlength="10" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-lock input-icon"></i>
+                <input type="password" id="signupPassword" placeholder="Create Password" required>
+                <i class="fa-solid fa-eye-slash toggle-password" id="toggleSignupPassword"></i>
+            </div>
+
+            <button type="submit">
+                Create Account
+            </button>
+        </form>
+
+        <p class="signup-link">
+            Already have an account?
+            <a href="login.html">Sign In</a>
+        </p>
+
+        <p style="margin-top: 15px;">
+            <a href="index.html" style="color: #234f55; text-decoration: none; font-weight: 600;">
+                ← Back to Home
+            </a>
+        </p>
+    </div>
+</div>
+
+<script type="module">
+    const togglePass = document.getElementById("toggleSignupPassword");
+    const passInput = document.getElementById("signupPassword");
+    const form = document.getElementById("signupForm");
+
+    if (togglePass && passInput) {
+        togglePass.addEventListener("click", () => {
+            if (passInput.type === "password") {
+                passInput.type = "text";
+                togglePass.classList.remove("fa-eye-slash");
+                togglePass.classList.add("fa-eye");
+            } else {
+                passInput.type = "password";
+                togglePass.classList.remove("fa-eye");
+                togglePass.classList.add("fa-eye-slash");
+            }
+        });
+    }
+
+    if (form) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const name = document.getElementById("signupName").value;
+            alert(`Account created successfully for ${name}! Redirecting to login.`);
+            window.location.href = "login.html";
+        });
+    }
+</script>
+
+</body>
+</html>

@@ -757,7 +757,7 @@ main .section-hero {
 .grid-three-cols {
   gap: 3rem;
 
-  & :div {
+  & div {
     justify-self: left;
   }
 }
@@ -2637,7 +2637,7 @@ font-size:2.8rem;
   }
 
   #searchInput {
-    width: 51rem;
+    width: 28rem;
     height: 4.2rem;
 
     padding: 0 1.2rem;
@@ -2780,7 +2780,7 @@ font-size:2.8rem;
   }
 
   #searchInput {
-    width: 51rem !important;
+    width: 28rem !important;
     height: 4.2rem !important;
     flex-shrink: 0 !important;
   }
@@ -2898,43 +2898,8 @@ font-size:2.8rem;
    CART - FAR RIGHT ON DESKTOP
    ========================================== */
 
-@media (min-width: 981px) {
+  /* NOTE: .navbar-main pages use flex layout - cart is in flow, not absolute */
 
-  .section-navbar .container {
-    position: relative !important;
-    width: 100% !important;
-    max-width: none !important;
-    padding-left: 4rem !important;
-    padding-right: 4rem !important;
-  }
-
-  .section-navbar .navbar-brand {
-    flex-shrink: 0 !important;
-  }
-
-  .section-navbar .navbar {
-    flex-shrink: 0 !important;
-  }
-
-  .section-navbar .cart,
-  .section-navbar .add-to-cart-button {
-    position: absolute !important;
-    right: 4rem !important;
-    top: 50% !important;
-
-    transform: translateY(-50%) !important;
-
-    margin: 0 !important;
-
-    width: 7rem !important;
-    min-width: 7rem !important;
-    height: 4.2rem !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-}
 /* ==========================================
    SAME HEADER ON ALL DESKTOP PAGES
    ========================================== */
@@ -3015,7 +2980,7 @@ font-size:2.8rem;
 
   .section-navbar #searchInput {
     display: block !important;
-    width: 59rem !important;
+    width: 18rem !important;
     height: 4.2rem !important;
   }
 
@@ -3028,20 +2993,24 @@ font-size:2.8rem;
     justify-content: center !important;
   }
 
-  /* CART - RIGHT */
-  .section-navbar .cart,
-  .section-navbar .add-to-cart-button {
+  /* CART - RIGHT (in-flow, flex-shrink: 0 so never hidden) */
+  .section-navbar #cartValue,
+  .section-navbar .navbar-row .add-to-cart-button {
+    position: static !important;
+    transform: none !important;
     margin-left: auto !important;
 
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    gap: 0.5rem !important;
 
-    width: 7rem !important;
     min-width: 7rem !important;
     height: 4.2rem !important;
+    padding: 0 1.2rem !important;
 
     flex-shrink: 0 !important;
+    white-space: nowrap !important;
   }
 }/* ==========================================
    DESKTOP PRODUCT CARDS
@@ -3073,3 +3042,407 @@ font-size:2.8rem;
 
 
 
+/* =====================================================
+   MOBILE - HOMEPAGE PROPER WIDTH
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+  html {
+    font-size: 62.5% !important;
+  }
+
+  body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ---------- TOP BAR ---------- */
+
+  .top_txt .head {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 1rem !important;
+    padding: 1rem !important;
+    text-align: center !important;
+  }
+
+  .top_txt .sing_in_up {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+  }
+
+
+  /* ---------- HEADER ---------- */
+
+
+  /* ---------- HERO ---------- */
+
+  .section-hero {
+    width: 100% !important;
+    padding: 4rem 1.5rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .section-hero .grid-two--cols {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .section-hero img {
+    width: 80% !important;
+    max-width: 28rem !important;
+    margin: 0 auto !important;
+  }
+
+
+  /* ---------- PRODUCTS ---------- */
+
+  .section-products {
+    width: 100% !important;
+  }
+
+  .section-products #productContainer {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+
+    width: 100% !important;
+  }
+
+  .section-products #productContainer .cards {
+    width: 100% !important;
+    max-width: 38rem !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .productImage {
+    width: 80% !important;
+    max-width: 26rem !important;
+    margin: 0 auto !important;
+  }
+
+
+  /* ---------- FOOTER ---------- */
+
+  .section-footer {
+    width: 100% !important;
+  }
+
+  .section-footer .footer-container {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+
+    width: 100% !important;
+    gap: 2.5rem !important;
+
+    text-align: center !important;
+  }
+
+  .section-footer .content_1,
+  .section-footer .content_2,
+  .section-footer .content_3,
+  .section-footer .content_4 {
+    width: 100% !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+}
+
+/* =====================================================
+   TABLET HEADER (601px to 980px)
+   ===================================================== */
+
+@media (min-width: 601px) and (max-width: 980px) {
+
+  .section-navbar .navbar-main {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    padding: 1rem 1.5rem !important;
+    gap: 1.5rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .section-navbar .navbar-brand .logo {
+    width: 9rem !important;
+    max-width: 9rem !important;
+  }
+
+  .section-navbar .navbar-row {
+    gap: 1.2rem !important;
+    flex: 1 1 auto !important;
+  }
+
+  .section-navbar .navbar ul {
+    gap: 1.2rem !important;
+  }
+
+  .section-navbar .navbar ul li a {
+    font-size: 1.3rem !important;
+  }
+
+  .section-navbar .search-box {
+    gap: 0.4rem !important;
+    flex: 1 1 auto !important;
+  }
+
+  .section-navbar #searchInput {
+    width: 100% !important;
+    max-width: 18rem !important;
+    height: 3.6rem !important;
+    font-size: 1.3rem !important;
+  }
+
+  .section-navbar #searchBtn {
+    width: 3.6rem !important;
+    height: 3.6rem !important;
+  }
+
+  .section-navbar #cartValue {
+    width: 5.5rem !important;
+    height: 3.6rem !important;
+    font-size: 1.3rem !important;
+  }
+}
+
+/* =====================================================
+   MOBILE HEADER - PROPER SPACING & COMPACT FIT
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+  .section-navbar .navbar-main {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+
+    padding: 0.6rem 0.4rem !important;
+    gap: 0.5rem !important;
+
+    flex-wrap: nowrap !important;
+    box-sizing: border-box !important;
+  }
+
+  /* LOGO */
+
+  .section-navbar .navbar-brand {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    margin: 0 !important;
+  }
+
+  .section-navbar .navbar-brand .logo {
+    width: 4.5rem !important;
+    max-width: 4.5rem !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+
+  /* NAV + SEARCH + CART */
+
+  .section-navbar .navbar-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+
+    flex: 1 1 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+
+    gap: 0.45rem !important;
+    flex-wrap: nowrap !important;
+  }
+
+
+  /* NAVIGATION */
+
+  .section-navbar .navbar {
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  .section-navbar .navbar ul {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+
+    gap: 0.4rem !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    flex-wrap: nowrap !important;
+  }
+
+  .section-navbar .navbar ul li {
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .section-navbar .navbar ul li a {
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+  }
+
+
+  /* SEARCH */
+
+  .section-navbar .search-box {
+    display: flex !important;
+    align-items: center !important;
+
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+
+    gap: 0.25rem !important;
+  }
+
+  #searchInput {
+    width: 6.5rem !important;
+    min-width: 0 !important;
+
+    height: 3rem !important;
+
+    padding: 0 0.45rem !important;
+
+    font-size: 0.75rem !important;
+  }
+
+  #searchInput::placeholder {
+    font-size: 0.72rem !important;
+  }
+
+  #searchBtn {
+    width: 3rem !important;
+    min-width: 3rem !important;
+    height: 3rem !important;
+
+    padding: 0 !important;
+  }
+
+
+  /* CART */
+
+  .section-navbar #cartValue {
+    width: 4.2rem !important;
+    min-width: 4.2rem !important;
+
+    height: 3rem !important;
+
+    margin: 0 !important;
+    padding: 0 0.3rem !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 0.25rem !important;
+
+    font-size: 1rem !important;
+
+    flex-shrink: 0 !important;
+  }
+
+  .section-navbar #cartValue i {
+    font-size: 1.1rem !important;
+  }
+
+  .section-navbar #cartValue span {
+    font-size: 1rem !important;
+  }
+}
+
+
+/* =====================================================
+   GALAXY S8+ / VERY SMALL MOBILE
+   ===================================================== */
+
+@media (max-width: 380px) {
+
+  .section-navbar .navbar-main {
+    padding: 0.5rem 0.25rem !important;
+    gap: 0.35rem !important;
+  }
+
+  /* Logo */
+  .section-navbar .navbar-brand .logo {
+    width: 4rem !important;
+    max-width: 4rem !important;
+  }
+
+  /* Main row */
+  .section-navbar .navbar-row {
+    gap: 0.3rem !important;
+  }
+
+  /* Menu */
+  .section-navbar .navbar ul {
+    gap: 0.3rem !important;
+  }
+
+  .section-navbar .navbar ul li a {
+    font-size: 0.65rem !important;
+  }
+
+  /* Search */
+  .section-navbar .search-box {
+    gap: 0.2rem !important;
+  }
+
+  #searchInput {
+    width: 5.5rem !important;
+    height: 2.8rem !important;
+    font-size: 0.65rem !important;
+  }
+
+  #searchInput::placeholder {
+    font-size: 0.65rem !important;
+  }
+
+  #searchBtn {
+    width: 2.8rem !important;
+    min-width: 2.8rem !important;
+    height: 2.8rem !important;
+  }
+
+  /* Cart */
+  .section-navbar #cartValue {
+    width: 3.8rem !important;
+    min-width: 3.8rem !important;
+    height: 2.8rem !important;
+  }
+
+  .section-navbar #cartValue i {
+    font-size: 1rem !important;
+  }
+
+  .section-navbar #cartValue span {
+    font-size: 0.9rem !important;
+  }
+}

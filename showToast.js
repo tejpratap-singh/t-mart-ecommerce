@@ -1,9 +1,11 @@
-export function showToast(operation, id) {
+export function showToast(operation, id, customMessage) {
   const toast = document.createElement("div");
   toast.classList.add("toast");
 
   // Set the text content of the toast based on the operation
-  if (operation === "add") {
+  if (customMessage) {
+    toast.textContent = customMessage;
+  } else if (operation === "add") {
     toast.textContent = `Product added to cart successfully.`;
   } else {
     toast.textContent = `Product removed from cart successfully.`;

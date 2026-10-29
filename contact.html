@@ -29,44 +29,62 @@
           </div>
         </div>
       </section>
-      
-      <div class="container">
+
+      <!-- MAIN HEADER -->
+      <div class="navbar-main">
+        <!-- LOGO -->
         <div class="navbar-brand">
           <a href="index.html">
             <img
               src="./images/log.png"
               alt="T MART Logo"
               class="logo"
-              width="80%"
-              height="auto"
             />
           </a>
         </div>
-        <nav class="navbar">
-          <ul>
-            <li class="nav-item">
-              <a href="/" class="nav-link">Home </a>
-            </li>
-            <li class="nav-item">
-              <a href="about.html" class="nav-link">about</a>
-            </li>
-            <li class="nav-item">
-              <a href="products.html" class="nav-link">products</a>
-            </li>
-            <li class="nav-item">
-              <a href="contact.html" class="nav-link">contact</a>
-            </li>
-            <li class="nav-item">
-              <a
-                href="addToCart.html"
-                class="nav-link add-to-cart-button"
-                id="cartValue"
-              >
-                <i class="fa-solid fa-cart-shopping"></i> 0</a
-              >
-            </li>
-          </ul>
-        </nav>
+
+        <!-- NAV + SEARCH + CART -->
+        <div class="navbar-row">
+          <!-- NAVIGATION -->
+          <nav class="navbar">
+            <ul>
+              <li>
+                <a href="index.html">Home</a>
+              </li>
+              <li>
+                <a href="about.html">About</a>
+              </li>
+              <li>
+                <a href="products.html">Products</a>
+              </li>
+              <li>
+                <a href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- SEARCH -->
+          <div class="search-box">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search Products..."
+            />
+            <button id="searchBtn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+
+          <!-- CART -->
+          <a
+            href="addToCart.html"
+            class="add-to-cart-button"
+            id="cartValue"
+          >
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>0</span>
+          </a>
+        </div>
       </div>
     </header>
     <!-- ========== End Navbar ========== -->
@@ -152,14 +170,48 @@
       </div>
     </section>
 
-    <!--* ========== Start Footer Section ========== -->
-
+    <!-- ========== Start footer Section ========== -->
     <footer class="section-footer">
-      <script src="footer.js"></script>
+      <div class="footer-container container">
+        <div class="content_1">
+          <img src="./images/log.png" alt="logo" />
+          <p>
+            Welcome to T MART, your trusted destination for electronics,
+            gadgets and smart shopping.
+          </p>
+          <img src="https://i.postimg.cc/Nj9dgJ98/cards.png" alt="cards" />
+        </div>
+        <div class="content_2">
+          <h4>SHOPPING</h4>
+          <a href="products.html">Computer Store</a>
+          <a href="products.html">Laptop Store</a>
+          <a href="products.html">Accessories</a>
+          <a href="products.html">Sales & Discount</a>
+        </div>
+        <div class="content_3">
+          <h4>Experience</h4>
+          <a href="contact.html">Contact Us</a>
+          <a href="about.html">About Us</a>
+          <a href="addToCart.html">Shopping Cart</a>
+          <a href="contact.html">Return and Exchange</a>
+        </div>
+        <div class="content_4">
+          <h4>NEWSLETTER</h4>
+          <p>Be the first to know about new<br />arrivals, sales & promos!</p>
+          <div class="f-mail">
+            <input type="email" placeholder="Your Email" />
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <hr />
+        </div>
+      </div>
+      <div class="f-design">
+        <div class="f-design-txt">
+          <p>Designed & Developed by Tej Pratap Singh</p>
+        </div>
+      </div>
     </footer>
-    <!-- Include the footer JavaScript file -->
-
-    <!--* ========== End Footer Section ========== -->
+    <!-- ========== End footer Section ========== -->
 
     <!-- ========== End About Section ========== -->
 
@@ -169,6 +221,15 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
+      const contactForm = document.querySelector(".contact-content form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const name = document.getElementById("username") ? document.getElementById("username").value : "Customer";
+          alert(`Thank you, ${name}! Your message has been sent successfully.`);
+          contactForm.reset();
+        });
+      }
     </script>
   </body>
 </html>

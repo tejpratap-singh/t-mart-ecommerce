@@ -37,43 +37,62 @@
           </div>
         </div>
       </section>
-      <div class="container">
+
+      <!-- MAIN HEADER -->
+      <div class="navbar-main">
+        <!-- LOGO -->
         <div class="navbar-brand">
           <a href="index.html">
             <img
               src="./images/log.png"
               alt="T MART Logo"
               class="logo"
-              width="80%"
-              height="auto"
             />
           </a>
         </div>
-        <nav class="navbar">
-          <ul>
-            <li class="nav-item">
-              <a href="/" class="nav-link">Home </a>
-            </li>
-            <li class="nav-item">
-              <a href="about.html" class="nav-link">about</a>
-            </li>
-            <li class="nav-item">
-              <a href="products.html" class="nav-link">products</a>
-            </li>
-            <li class="nav-item">
-              <a href="contact.html" class="nav-link">contact</a>
-            </li>
-            <li class="nav-item">
-              <a
-                href="addToCart.html"
-                class="nav-link add-to-cart-button"
-                id="cartValue"
-              >
-                <i class="fa-solid fa-cart-shopping"></i> 0</a
-              >
-            </li>
-          </ul>
-        </nav>
+
+        <!-- NAV + SEARCH + CART -->
+        <div class="navbar-row">
+          <!-- NAVIGATION -->
+          <nav class="navbar">
+            <ul>
+              <li>
+                <a href="index.html">Home</a>
+              </li>
+              <li>
+                <a href="about.html">About</a>
+              </li>
+              <li>
+                <a href="products.html">Products</a>
+              </li>
+              <li>
+                <a href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- SEARCH -->
+          <div class="search-box">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search Products..."
+            />
+            <button id="searchBtn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+
+          <!-- CART -->
+          <a
+            href="addToCart.html"
+            class="add-to-cart-button"
+            id="cartValue"
+          >
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>0</span>
+          </a>
+        </div>
       </div>
     </header>
     <!-- ========== End Navbar ========== -->
@@ -179,6 +198,7 @@
     </footer>
     <!-- ========== End footer Section ========== -->
 
+    <script type="module" src="main.js"></script>
     <script type="module" src="showAddToCartCards.js"></script>
   </body>
 </html>
